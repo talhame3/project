@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insurance Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+<div  class="container my-2">
+
+<h1>Claim List</h1>
+
+  <a th:href = "@{/showNewEmployeeForm}" class="btn btn-primary btn-sm mb-3"> Add Claim </a>
+  
+	<table border="1" class = "table table-striped table-responsive-md">
+		<thead>
+			<tr>
+			
+				
+				<th><a>	Claim Description</a></th>
+				<th><a>	Claim Email</a></th>
+				<th><a>	Claim First Name</a></th>
+				<th><a>	Claim Last Name</a></th>
+				<th><a>	Claim Status</a></th>
+				<th><a>	Claim Title</a></th>
+				
+				<th> Actions </th>
+				
+				
+			
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="claim : ${listClaim}">
+					<td th:text="${claim.description}"></td>
+					<td th:text="${claim.email}"></td>
+					<td th:text="${claim.firstName}"></td>
+					<td th:text="${claim.lastName}"></td>
+					<td th:text="${claim.status}"></td>
+					<td th:text="${claim.title}"></td>
+					<td> <a th:href="@{/showFormForUpdate/{id}(id=${claim.id})}" class="btn btn-primary">Update</a>
+						<a th:href="@{/deleteClaim/{id}(id=${claim.id})}" class="btn btn-danger">Delete</a>
+					</td>
+					
+				</tr> 
+		</tbody>
+	</table>
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
