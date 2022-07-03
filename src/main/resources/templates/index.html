@@ -44,6 +44,7 @@
 					<td th:text="${claim.status}"></td>
 					<td th:text="${claim.title}"></td>
 					<td>
+						<a th:href="@{/upload}" class="btn btn-primary">Upload</a>
 						<a th:href="@{/showFormForUpdate/{id}(id=${claim.id})}" class="btn btn-primary">Update</a>
 						<a th:href="@{/deleteClaim/{id}(id=${claim.id})}" class="btn btn-danger">Delete</a>
 					</td>
